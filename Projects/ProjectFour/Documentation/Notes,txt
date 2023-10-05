@@ -1,0 +1,18 @@
+
+
+From Lecture 4:
+
+I provided renamed class source code files from the textbook under Week 04's
+
+The source files linked in the Week 04's content folder have the matching classes in the 10.13.2 problem:
+    
+    CollegeCoursesMain -> EmployeeMain
+    CoursePerson -> EmployeePerson
+    CourseStudent -> EmployeeStaff
+    CourseTeacher -> EmployeeManager
+
+
+
+-----
+Compile with: 
+javac ./CoursePerson.java ./CourseTeacher.java ./CourseStudent.java ./CollegeCoursesMain.java
