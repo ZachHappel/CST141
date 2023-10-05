@@ -1,44 +1,48 @@
 package cst141.projects.projectfour; 
 
-public class CourseTeacher {
-    private int numManaged;    // Number of staff managed
+public class CourseTeacher extends CoursePerson{
+
+    private Boolean fullTime;
+
 
     // ***********************************************************************
 
     // Default constructor
-    public EmployeeManager() {
-        numManaged = 0;
+    public CourseTeacher() {
+        super();
+        fullTime = false;
     } 
 
-    // ***********************************************************************
-
-    // Constructor with parameters 
-    public EmployeeManager(int nManaged) {
-        numManaged = nManaged;
+    public CourseTeacher(String theFullName, String thePhoneNumber, String theUserName, boolean theFullTime) {
+        super(theFullName, thePhoneNumber, theUserName);
+        fullTime = theFullTime;
     } 
 
     // ***********************************************************************
 
     // Get the number of people managed
-    public int getNumManaged() {
-        return numManaged;
+    public Boolean getFullTime() {
+        return getFullTime;
     } 
 
     // ***********************************************************************
 
     @Override
     public void printInfo() {
-        System.out.println("Name: " + fullName + ", Department: " + 
-                departmentCode + ", Birthday: " + birthday +
-                ", Salary: " + annualSalary + 
-                ", Staff managed: " + getNumManaged());
+        System.out.println(
+            "Name: " + super.getFullName() + 
+            ", Phone Number: " + super.getPhoneNumber() + 
+            ", User Name: " + super.getUserName() + 
+            ", Full Time: " + fullTime + 
+            ", Email: " + super.getEmailAddress();
+        );
     } 
 
     // ***********************************************************************
 
     // The annual bonus for a manager is 10% of the annual salary.
     @Override
-    public int getAnnualBonus() {
+    public int getEmailAddress() {
         return (int)(annualSalary * 0.10);
     } 
 }

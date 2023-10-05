@@ -1,38 +1,49 @@
 package cst141.projects.projectfour; 
 
 public abstract class CoursePerson {
-    protected String fullName;       // In the format last name, first name
-    protected String departmentCode;
-    protected String birthday;
-    protected int annualSalary;
+
+    protected String fullName;
+    protected String phoneNumber; 
+    protected String userName;
     
     // ***********************************************************************
 
     // Default constructor. Set protected variables to the empty string or 0
-    public EmployeePerson() {
+    public CoursePerson() {
         fullName = "";
-        departmentCode = "";
-        birthday = "";
-        annualSalary = 0;
+        phoneNumber = "";
+        userName = "";
     } 
 
     // ***********************************************************************
 
     // Constructor with parameters to set the private variables
-    public EmployeePerson(String empFullName, String empDepartmentCode,
-                            String empBirthday, int empAnnualSalary) {
-        setData(empFullName, empDepartmentCode, empBirthday, empAnnualSalary);
+    public CoursePerson(String fullName, String phoneNumber, String userName) {
+        //setData(String fullName, String phoneNumber, String userName;
     } 
     
    // ***********************************************************************
 
+   public String getFullName () {
+       return fullName;
+   }
+
+   public String getPhoneNumber () {
+       return phoneNumber;
+   }
+
+   public String getUserName () {
+       return userName;
+   }
+
+   /**
     public void setData(String empFullName, String empDepartmentCode,
                         String empBirthday, int empAnnualSalary) {
         fullName       = empFullName;
         departmentCode = empDepartmentCode;
         birthday       = empBirthday;
         annualSalary   = empAnnualSalary;
-    } 
+    }  **/ 
 
     // ***********************************************************************
 
@@ -42,5 +53,5 @@ public abstract class CoursePerson {
     // ***********************************************************************
 
     // Ensure each subclass has a getAnnualBonus() method
-    abstract int getAnnualBonus();
+    abstract String getEmailAddress();
 }
