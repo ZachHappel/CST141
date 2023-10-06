@@ -6,7 +6,7 @@ public class CourseStudent extends CoursePerson{
     private Boolean fullTime;
     private String programOfStudy;
 
-    
+
     public CourseStudent() {
         super(); // call default constructor of parent class
         matriculated = false;
@@ -15,47 +15,38 @@ public class CourseStudent extends CoursePerson{
     } 
 
     
-    public CourseStudent( String theFullName, String thePhoneNumber, String theUserName, Boolean theMatriculated, Boolean theFullTime, String theProgramOfStudy ) {
-        // assign values passed at this constructor to the CoursePerson (parent) constructor
-        super( String theFullName, String thePhoneNumber, String theUserName);
-        matriculated = theMatriculated;
-        fullTime = theFullName;
-        programOfStudy = theProgramOfStudy;
-        
+    public CourseStudent( 
+        String theFullName, 
+        String thePhoneNumber, 
+        String theUserName, 
+        Boolean theMatriculated, 
+        Boolean theFullTime, 
+        String theProgramOfStudy) {
+            super(theFullName, thePhoneNumber, theUserName);
+            matriculated = theMatriculated;
+            fullTime = theFullTime;
+            programOfStudy = theProgramOfStudy;
     } 
 
+    public Boolean getMatriculated() { return matriculated; } 
+    public Boolean getFullTime() { return fullTime; } 
+    public String  getProgramOfStudy() { return programOfStudy; } 
 
-    public Boolean getMatriculated() {
-        return matriculated;
-    } 
 
-    public Boolean getFullTime() {
-        return matriculated;
-    } 
-
-    public String getProgramOfStudy() {
-        return programOfStudy;
-    } 
-
-    // ***********************************************************************
-
-    @Override
-    public void printInfo() {
+    @Override public void printInfo() {
         System.out.println(
-            "Name: " + super.getFullName() + 
+              "Name: " + super.getFullName() + 
             ", Phone Number: " + super.getPhoneNumber() + 
             ", User Name: " + super.getUserName() + 
             ", Matriculated: " + matriculated + 
             ", Full Time: " + fullTime + 
-            ", Program of Study: " + programOfStudy
+            ", Program of Study: " + programOfStudy + 
+            ", Email: " +  getEmailAddress()
         );
     } 
 
-    // ***********************************************************************    
-    // FIXME: Implement the getAnnualBonus method. A staff's annual bonus is calculated as 7.5% of the employee's annual salary.
-
-    @Override
-    public String getEmailAddress() {
+   
+    @Override public String getEmailAddress() {
         return (super.getUserName()).concat("@mail.sunysuffolk.edu");
     } 
 }
