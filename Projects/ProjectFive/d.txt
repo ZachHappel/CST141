@@ -1,0 +1,7 @@
+Michael,Faraday,124,1
+Ada,Lovelace,203,2
+James,Maxwell,123,1
+Alan,Turing,201,2
+Kindra,Smith,122,2
+Emezra,Alandorf,100,1
+Phyliss,Dryer,126,2

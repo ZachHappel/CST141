@@ -1,0 +1,20 @@
+You are to code "zyDE 13.1.1" in NetBeans changing the part of the compareTo()
+method in the EmployeeData.java class so that it 
+
+compares emplIDs rather than name.
+
+
+You are also to remove the entire do loop code block and replace it with code that will
+read in the employee data from a file (so there is no menu to add, print, or quit...
+simply read in data and sort the records and output). 
+
+The data file is included in the Content folder for the week. 
+
+You will use the Project Assignment Template file to create a Word Processing document for submitting your work 
+(template file also in the Content folder for the week). 
+
+You will name your Project Assignment Document as "yourlastname-CST141FA23-ProjectForW08" as either a .doc, .docx, or .pdf.
+Ex. Smith-CST141FA23-ProjectForW08. 
+
+Submit the file under the Project for Week 08 Assignment folder in BrightSpace. The assignment is due by 11:59PM on
+10/29.Sunday, / 11:59PM.
