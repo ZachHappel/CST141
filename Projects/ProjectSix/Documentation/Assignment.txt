@@ -1,0 +1,52 @@
+You are going to modify the program 
+
+"Figure 15.10.1: A seat reservation GUI involving a table, fields, and buttons."
+
+
+The first task is to create a project in NetBeans called
+
+ProjectWeek11 but you will call the main class "SeatReservationFrame". 
+
+Copy and paste the "SeatReservationFrame.java" source code into the editor without erasing the package statement. 
+
+Create a second java file in the same package called "SeatInfo".
+
+Copy and paste the "SeatInfo.java" source code into the editor for SeatInfo without erasing the package statement. 
+
+Compile and get the program to run. 
+
+Analyze the source code, the description of the program in the textbook section, and observe the interactions with the program.
+
+
+Modifications:
+
+1. Adjust NUM_SEATS value, swap table_size variable to use NUM_SEATS, check it works
+
+Requires: Change NUM_SEATS to 20; Table Size should use NUM_SEATS ( (rather than) not the original value of 5)
+
+Notes: 
+Ensure that it works with the new value and the screen interface changes
+
+
+
+2. Follow the details in " Try 15.10.1: Modify the above GUI." 
+Requires: Modify the SeatReservationFrame program to have an additional JFormattedTextField and JButton component 
+For Purpose: Deleting a particular seat reservation. 
+
+Notes: 
+Within JFormattedTextField component, user can enter seat number, on JButton activation -> trigger deletion
+
+
+3. Add Method, Ensure Invocation is correct, 
+
+Requires: Adding new method 
+Method reads values of certain seats
+Method makes the initial reservation
+
+Notes:
+Ensure that the invocation is in the appropriate place to the load the table with the values read in
+
+Add a method that will read the values of certain seats and will make initial
+reservations. Add the invocation in the appropriate place to load the table
+with the values read in. The program should then work as it currently does.
+A text file will be provided to test your program.
