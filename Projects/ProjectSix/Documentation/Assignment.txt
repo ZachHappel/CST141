@@ -99,7 +99,7 @@ Notes:
 Within JFormattedTextField component, user can enter seat number, on JButton activation -> trigger deletion
 
 
-3. Add Method, Ensure Invocation is correct, 
+3. Add Method, Ensure Invocation is correct,  By this, this means loading from textfile
 
 Requires: Adding new method 
 Method reads values of certain seats

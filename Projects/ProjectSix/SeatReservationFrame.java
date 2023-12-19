@@ -1,3 +1,7 @@
+import java.io.IOException;
+
+import java.io.FileInputStream;
+
 
 
 import java.awt.GridBagConstraints;
@@ -5,8 +9,11 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -48,8 +55,8 @@ public class SeatReservationFrame extends JFrame implements ActionListener {
       // Set frame's title
       setTitle("Seat reservation");
 
-      // Add 5 seat objects to ArrayList
-      seatResArr = new ArrayList<SeatInfo>();
+      // Add NUM_SEATS seat objects to ArrayList
+      seatResArr = new ArrayList<SeatInfo>(); // ArrList  used for tracking seats
       seatsAddElements(seatResArr, NUM_SEATS);
 
       // Make all seats empty
@@ -299,12 +306,41 @@ public class SeatReservationFrame extends JFrame implements ActionListener {
       }
    }
 
+   public void setReservationsFromFile(FileInputStream FIS, String fileName) {
+      
+      ArrayList<SeatInfo> ReservationInformation = new ArrayList<>();     
+         
+      Scanner inFS = new Scanner(FIS);
+         
+         while(inFS.hasNext()) {
+            String line = inFS.nextLine(); 
+            String[] lineArr = line.split(",");
+            SeatInfo newSeat = new SeatInfo();
+            newSeat.reserveSeat(lineArr[1], lineArr[2], Integer.valueOf(lineArr[3])); // SETS String firstName, Strinf lastName, int amountPaid  to SeatInfo object
+            seatResArr.set(Integer.valueOf(lineArr[0]), newSeat);
+         } inFS.close();
+         
+         updateTable();  
+   }
+
    /* Creates a SeatReservationFrame and makes it visible */
-   public static void main(String[] args) {
+   public static void main(String[] args) throws Exception {
       // Creates SeatReservationFrame and its components
+      
       SeatReservationFrame myFrame = new SeatReservationFrame();
+      
+      // CODE FROM MY PROJECT 5
+      // Assign filename argument to variable, create file input bytestream and attach scanner
+      
+      
+      
+      if (!(args[0].endsWith(".txt"))) throw new IOException("Invalid file name");
+      String fileName = args[0];
+      FileInputStream fileByteStream = new FileInputStream(fileName);
+
 
       myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      myFrame.setReservationsFromFile(fileByteStream, fileName); // Do prior to making app visible to user
       myFrame.pack();
       myFrame.setVisible(true);
    }
