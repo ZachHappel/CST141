@@ -15,19 +15,19 @@ public class EmployeeData implements Comparable<EmployeeData> {
  
     @Override
     public int compareTo(EmployeeData otherEmpl) {
-       String fullName;           // Full name, this employee
-       String otherFullName;      // Full name, comparison employee
+       //String fullName;           // Full name, this employee
+       //String otherFullName;      // Full name, comparison employee
        int comparisonVal;         // Outcome of comparison
        
        // Compare based on department number first
-       comparisonVal = deptNum.compareTo(otherEmpl.deptNum);
+       //comparisonVal = deptNum.compareTo(otherEmpl.deptNum);
        
        // If in same organization, use name
-       if (comparisonVal == 0) {
-          fullName = lastName + firstName;
-          otherFullName = otherEmpl.lastName + otherEmpl.firstName;
-          comparisonVal = fullName.compareTo(otherFullName);
-       }
+       //if (comparisonVal == 0) {
+          //fullName = lastName + firstName;
+          //otherFullName = otherEmpl.lastName + otherEmpl.firstName;
+          comparisonVal = emplID.compareTo(otherEmpl.emplID);
+       //}
        
        return comparisonVal;
     }
