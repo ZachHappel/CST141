@@ -308,8 +308,6 @@ public class SeatReservationFrame extends JFrame implements ActionListener {
 
    public void setReservationsFromFile(FileInputStream FIS, String fileName) {
       
-      ArrayList<SeatInfo> ReservationInformation = new ArrayList<>();     
-         
       Scanner inFS = new Scanner(FIS);
          
          while(inFS.hasNext()) {
