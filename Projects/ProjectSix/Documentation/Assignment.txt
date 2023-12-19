@@ -2,6 +2,67 @@ You are going to modify the program
 
 "Figure 15.10.1: A seat reservation GUI involving a table, fields, and buttons."
 
+"The following program combines a table, fields, buttons, and dialogs to create a GUI that allows a reservation
+ agent to reserve seats for people, as might be useful for a theater or an airplane."
+
+"The above program defines a SeatInfo class to store information regarding a particular reservation. The SeatInfo class declares
+ fields for a person's first name, last name, and the amount paid for the particular seat. The SeatInfo class also declares methods
+  that allow a programmer to reserve a seat, check if a seat is empty, or make the seat empty.
+
+
+SeatInfo class:
+vars:                   first name, last name, amount paid
+methods for programmer: reserve seat, check if empty, make seat empty
+
+
+OOP:
+The program...
+ Creates an ArrayList of 5 Seat objects called seatResArr,
+ Initializes all seats to empty ==> indicated by a first and last name of "empty",
+ 
+ Then allows the user to reserve a seat by
+  Entering seat information into the text fields,  pressing the "Reserve" button.
+  
+    Then, table displays information for each seat in a separate row.
+
+The SeatReservationFrame iteration methods for SeatInfo objects in ArrayList:
+ seatsAddElements() method takes an empty ArrayList and adds the desired number of seats. 
+ seatsMakeEmpty() method iterates through an ArrayList in order to make all seats empty.
+
+
+----
+GUI Layout (Default) [[In total, 5 seats starting at index 0]]
+
+4 columns,  Seat Number, First Name, Last Name, Amount Paid
+5 rows
+
+
+Input Labels and Fields, label on top of field              ||          GUI Buttons
+
+Seat Number,   First Name,     Last Name,   Amount Paid     ||
+0               John            Doe           $0                      RESERVE    QUIT
+
+----
+
+
+Buttons: 
+
+RESERVE - Use current SeatReservationFrame object as the ActionListener, actionPressed associated with button, 
+
+
+
+The GUI's two buttons, whose references variables are reserveButton and quitButton, use the current SeatReservationFrame object as the ActionListener. 
+Thus, the program calls the actionPerformed() method when the user presses the reserveButton to make a seat reservation or when the user 
+presses the quitButton to terminate the program. The actionPerformed() method first determines the source component of the action event by using 
+ActionEvent's getSource() method, which returns a reference to the object that triggered the event, and compares the returned reference to reserveButton and quitButton. 
+If the user pressed the quitButton, then the actionPerformed() method calls JFrame's dispose() method to terminate the program and GUI. Otherwise, the actionPerformed() 
+method attempts to reserve a seat, executing a series of checks to ensure the user entered valid reservation information.
+
+If the user tries to reserve a non-existing seat, the actionPerformed() method displays a dialog window with the message "Seat doesn't exist!". 
+If instead the user tried to reserve a seat that is not currently empty, the program displays a dialog window with the message "Seat is not empty!". 
+Otherwise, the method extracts the seat number, first name, last name, and amount paid from the corresponding text fields, creates a new SeatInfo object 
+with the provided information, adds the SeatInfo object to the seatResArr ArrayList, and calls the UpdateTable() method to update the table with the new reservation data.
+
 
 The first task is to create a project in NetBeans called
 
@@ -30,6 +91,7 @@ Ensure that it works with the new value and the screen interface changes
 
 
 2. Follow the details in " Try 15.10.1: Modify the above GUI." 
+From Book: " to have an additional JFormattedTextField and JButton component for the purposes of deleting a particular seat reservation"
 Requires: Modify the SeatReservationFrame program to have an additional JFormattedTextField and JButton component 
 For Purpose: Deleting a particular seat reservation. 
 

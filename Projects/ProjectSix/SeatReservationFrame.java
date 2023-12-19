@@ -26,15 +26,20 @@ public class SeatReservationFrame extends JFrame implements ActionListener {
    private JLabel lastNameLabel;                  // Label for last name
    private JLabel amountPaidLabel;                // Label for amount paid
    private JButton reserveButton;                 // Triggers seat reservation
+   private JButton deleteReservationButton;       // Triggers deletion of  seat reservation
    private JButton quitButton;                    // Triggers termination of GUI
    private JTable seatStatusTable;                // Table tracks seat reservations
-   private final static int NUM_SEATS = 5;        // Number of seat in reservation system
+   
+   
+   /// CHANGED FROM 5 TO 20
+   private final static int NUM_SEATS = 20;        // Number of seat in reservation system
    private static ArrayList<SeatInfo> seatResArr; // ArrayList of Seat objects
 
    /* Constructor creates GUI components and adds GUI components
       using a GridBagLayout. */
    SeatReservationFrame() {
-      Object[][] tableVals = new Object[5][4];                // Seat reservation table
+      // Updated to NUM_SEATS, working
+      Object[][] tableVals = new Object[NUM_SEATS][4];                // Seat reservation table
       String[] columnHeadings = {"Seat Number", "First Name", // Column headings for reservation table
                                  "Last Name", "Amount Paid"};
       GridBagConstraints layoutConst = null;                  // GUI component layout
@@ -77,6 +82,9 @@ public class SeatReservationFrame extends JFrame implements ActionListener {
 
       reserveButton = new JButton("Reserve");
       reserveButton.addActionListener(this);
+      
+      deleteReservationButton = new JButton("Delete");
+      deleteReservationButton.addActionListener(this);
 
       quitButton = new JButton("Quit");
       quitButton.addActionListener(this);
@@ -174,10 +182,18 @@ public class SeatReservationFrame extends JFrame implements ActionListener {
       layoutConst.gridy = 4;
       add(reserveButton, layoutConst);
 
+      
+      layoutConst = new GridBagConstraints();
+      layoutConst.insets = new Insets(0, 10, 10, 5);
+      layoutConst.fill = GridBagConstraints.HORIZONTAL;
+      layoutConst.gridx = 5;
+      layoutConst.gridy = 4;
+      add(deleteReservationButton, layoutConst);
+
       layoutConst = new GridBagConstraints();
       layoutConst.insets = new Insets(0, 5, 10, 10);
       layoutConst.fill = GridBagConstraints.HORIZONTAL;
-      layoutConst.gridx = 5;
+      layoutConst.gridx = 6;
       layoutConst.gridy = 4;
       add(quitButton, layoutConst);
    }
@@ -188,7 +204,8 @@ public class SeatReservationFrame extends JFrame implements ActionListener {
       SeatInfo seatElement;  // Seat information
       String firstName;      // First name
       String lastName;       // Last name
-      int seatNum;           // Seat number
+      int seatNum;           // Seat number      int seatNum;           // Seat number
+
       int amtPaid;           // Amount paid
 
       // Get source of event (2 buttons in GUI)
@@ -198,17 +215,17 @@ public class SeatReservationFrame extends JFrame implements ActionListener {
       if (sourceEvent == reserveButton) {
          seatNum = ((Number) seatNumField.getValue()).intValue();
 
-         // User tried to reserve non-existing seat
+         //NON-EXISTING SEAT
          if (seatNum >= NUM_SEATS) {
             // Show failure dialog
             JOptionPane.showMessageDialog(this, "Seat doesn't exist!");
          }
-         // User tried to reserve a non-empty seat
+         // NON-EMPTY SEAT
          else if (!(seatResArr.get(seatNum).isEmpty())) {
             // Show failure dialog
             JOptionPane.showMessageDialog(this, "Seat is not empty!");
          }
-         // Reserve the specified seat
+         // VALID RESERVATION
          else {
             firstName = firstNameField.getText();
             lastName = lastNameField.getText();
@@ -222,10 +239,21 @@ public class SeatReservationFrame extends JFrame implements ActionListener {
 
             // Show success dialog
             JOptionPane.showMessageDialog(this, "Seat reservation completed.");
+            
          }
       }
       else if (sourceEvent == quitButton) {
          dispose();                               // Terminate program
+      }
+
+      else if (sourceEvent == deleteReservationButton) {
+         seatNum = ((Number) seatNumField.getValue()).intValue();
+         seatElement = new SeatInfo();
+         seatElement.makeEmpty();
+         seatResArr.set(seatNum, seatElement);
+         updateTable();
+         JOptionPane.showMessageDialog(this, "Reservation deleted for seat, " + seatNum);
+
       }
    }
 
