@@ -1,0 +1,18 @@
+
+After solving the package import issue, resulting in the mutilated directory structure of...
+C:\Users\zkhap\Documents\SUNY Suffolk\Principles of Computing with Java\git\CST141\Projects\Practice\CST141\Projects\Practice
+
+The command to compile our example JavaFX app, ExampleConversionsApp, within the directory: 
+
+
+
+When in the directory: ~/Documents/SUNY Suffolk/Principles of Computing with Java/git/CST141
+
+java --module-path "C:\javafx-sdk-21.0.1\lib" --add-modules=javafx.controls,javafx.fxml -cp Projects/Practice CST141.Projects.Practice.ExampleConversionsApp
+
+
+
+----
+Ignore, Testing
+
+java --module-path "C:\javafx-sdk-21.0.1\lib" --add-modules=javafx.controls,javafx.fxml Projects.Practice.ExampleFXApp

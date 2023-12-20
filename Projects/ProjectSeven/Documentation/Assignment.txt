@@ -1,0 +1,29 @@
+Copy the JavaFX template project into a new project called ProjectWeek13 and
+refractor-rename the main class Conversions.
+
+
+Create a JavaFX interface that 
+
+Form
+
+converts distances from US measurements 
+(4 different fields for miles, yards, feet, and inches with 4 buttons)
+to metric (at least 2 different conversion values in separate, labeled fields). 
+
+Below that in the same form 
+
+converts weights 
+either (tons, pounds, ounces) from US weights to metric
+(at least two different values). 
+
+
+create a section of the form to 
+convert volumes from US volumes
+(gallons, cups, tablespoons, and teaspoons) to metric (two values). 
+
+Allow the user to enter decimal amounts of each value to be converted.
+
+BONUS:
+Allow the user to select the type of measure with a radio button for each section to
+match what is in the parenthesis rather than separate input fields and buttons for each
+type of measurement (distance, weights, and volume).
